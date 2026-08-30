@@ -1,0 +1,124 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import PricingFeatureMark from "@/components/fundations/icons/PricingFeatureMark.astro";
+
+const packagesTiers = [
+  {
+    name: "Gap Analysis & Načrt",
+    subtitle: "Za hitro oceno pripravljenosti",
+    description: "Natančen pregled obstoječega stanja, Git repozitorijev in CI/CD cevovodov z jasnimi navodili za odpravo vrzeli.",
+    features: [
+      "Pregled obstoječe arhitekture in SDLC procesov",
+      "Identifikacija vrzeli glede na SOC 2 / NIS2 / ISO 27034",
+      "Analiza upravljanja dostopov in skrivnosti",
+      "Poročilo z prioritiziranimi ukrepi",
+      "Preverjanje ustreznosti orodij (SAST/DAST/SCA)",
+      "Uvodna in zaključna delavnica z ekipo",
+    ],
+    cta: "Naročite oceno stanja",
+    isPopular: false,
+  },
+  {
+    name: "Celotna Implementacija",
+    subtitle: "Za scaling in tech podjetja",
+    description: "Aktivna vpeljava Secure SDLC procesov in avtomatizacija varnostnih kontrol neposredno v vaših cevovodih.",
+    features: [
+      "Vse iz paketa Gap Analysis",
+      "Vzpostavitev pravilih za veje (Branch Governance)",
+      "Integracija SAST, DAST in dependency skeniranja",
+      "Avtomatizacija zbiranja dokazov za revizijo",
+      "Vzpostavitev varnega cikla upravljanja skrivnosti",
+      "Izobraževanje razvojne ekipe za varno kodiranje",
+    ],
+    cta: "Izberite celotno implementacijo",
+    isPopular: true,
+  },
+  {
+    name: "Audit Companion",
+    subtitle: "Za podjetja pred revizijo",
+    description: "Strokovna podpora in spremstvo vaše tehnične ekipe med samim postopkom zunanje revizije in presoje.",
+    features: [
+      "Pred-revizijski pregled (Mock Audit)",
+      "Priprava tehnične dokumentacije in dokazov",
+      "Spremljanje ekipe med razgovori z auditorji",
+      "Hitro reševanje opazovanj in ugovorov presojevalcev",
+      "Neposredna komunikacija z revizijsko hišo",
+      "Poprodajna podpora in periodični pregledi",
+    ],
+    cta: "Rezervirajte spremstvo",
+    isPopular: false,
+  },
+];
+---
+
+<section id="paketi" aria-labelledby="packages-heading">
+  <Wrapper variant="default" class="py-20">
+    <div class="mx-auto max-w-2xl text-center">
+      <div class="text-balance">
+        <Text
+          id="packages-heading"
+          tag="h2"
+          variant="displayMD"
+          class="text-foreground font-display tracking-tight"
+        >
+          Modeli sodelovanja prilagojeni vašim ciljem
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="text-muted-foreground mt-1.5 font-normal"
+        >
+          Ne glede na to, ali šele začetno ocenjujete vrzel ali pa potrebujete celovito vpeljavo in vodenje skozi revizijo.
+        </Text>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-3">
+      {
+        packagesTiers.map((tier) => (
+          <article class="bg-background text-foreground relative flex w-full flex-col overflow-hidden rounded-lg border border-border">
+            <div class="flex flex-1 flex-col p-4 lg:p-8">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-base font-medium">{tier.name}</h3>
+                  <p class="text-muted-foreground text-sm font-medium">
+                    {tier.subtitle}
+                  </p>
+                </div>
+                {tier.isPopular && (
+                  <span class="bg-muted text-foreground shrink-0 rounded-md px-2.5 py-1 text-xs font-medium">
+                    Priporočeno
+                  </span>
+                )}
+              </div>
+
+              <p class="text-muted-foreground mt-4 text-sm font-medium text-balance">
+                {tier.description}
+              </p>
+
+              <div class="mt-6">
+                <Button isLink href="#kontakt" size="lg" class="w-full">
+                  {tier.cta}
+                </Button>
+              </div>
+
+              <ul
+                class="text-foreground mt-8 flex list-none flex-col items-start gap-y-2.5 font-medium"
+                role="list"
+              >
+                {tier.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <PricingFeatureMark />
+                    <p class="text-sm tracking-tight">{feature}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

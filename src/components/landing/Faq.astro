@@ -5,64 +5,40 @@ import ChevronDown from "@/components/fundations/icons/ChevronDown.astro";
 
 const faqs = [
   {
-    id: "what-is-crm",
-    question: "What is a CRM system?",
+    id: "zakaj-iso-27034",
+    question: "Zakaj splošna ISO 27001 certifikacija ne zadošča za razvijalce programske opreme?",
     answer:
-      "A CRM (Customer Relationship Management) system is a software platform designed to help businesses manage and analyze customer interactions and data throughout the customer lifecycle.",
+      "ISO 27001 pokriva celostno upravljanje informacijske varnosti v podjetju (politike, fizična varnost, HR), ne obravnava pa specifik razvoja kode. ISO 27034 in SOC 2 Type II podrobno definirata zahtevane kontrole znotraj razvojnega cikla (Secure SDLC), kot so SAST/DAST preverjanja, upravljanje skrivnosti in revizijske sledi v Git repozitorijih.",
   },
   {
-    id: "getting-started",
-    question: "How do I get started with your CRM?",
+    id: "trajanje-procesa",
+    question: "Kako dolgo traja celoten proces priprav na revizijo?",
     answer:
-      "Simply sign up for an account, import your customer data, and start using our intuitive dashboard to manage your customer relationships effectively.",
+      "Začetna ocena stanja (Gap Analysis) traja običajno od 1 do 2 tednov. Celotna vpeljava avtomatiziranih kontrol in prilagoditev CI/CD cevovodov traja med 1 in 3 mesece, odvisno od velikosti ekipe in obstoječe tehnične zadolženosti.",
   },
   {
-    id: "features",
-    question: "What features does your CRM offer?",
+    id: "vpliv-na-razvijalce",
+    question: "Ali bo vpeljava Secure SDLC upočasnila delo naših razvijalcev?",
     answer:
-      "We provide contact management, sales pipeline tracking, email integration, reporting and analytics, task automation, and customer communication tools.",
+      "Nasprotno. Z avtomatizacijo varnostnih pregledov neposredno v CI/CD (npr. ob vsakem Merge Requestu) razvijalci dobijo povratno informacijo takoj. Cilj je eliminirati ročne varnostne preglede in birokracijo pred objavo kode.",
   },
   {
-    id: "trial",
-    question: "Is there a free trial available?",
+    id: "podpora-orodjem",
+    question: " Katera razvojalna orodja in CI/CD platforme podpirate?",
     answer:
-      "Yes, we offer a 14-day free trial for new users to explore all our CRM features and see how it can benefit your business.",
+      "Integracije izvajamo za vse vodilne rešitve na trgu: GitLab CI/CD, GitHub Actions, Azure DevOps, Bitbucket, pa tudi za lokalne LLM / AI komponente in orodja za skeniranje (SonarQube, Snyk, Trivy, Vault ...).",
   },
   {
-    id: "integrations",
-    question: "Can I integrate your CRM with other tools?",
+    id: "nis2-zahteve",
+    question: "Koga zadeva NIS2 direktiva in kaj zahteva od ponudnikov programske opreme?",
     answer:
-      "Absolutely. Our CRM supports integrations with popular business tools like Gmail, Outlook, Slack, Zapier, and many other marketing and sales platforms.",
+      "NIS2 velja za subjekte v ključnih in pomembnih sektorjih ter njihove dobavitelje IKT storitev. Zahteva dokazljivo varnost dobavne verige (Supply Chain Security), ustrezno obvladovanje ranljivosti in sposobnost poročanja o incidentih.",
   },
   {
-    id: "support",
-    question: "What kind of support do you provide?",
+    id: "vloga-med-revizijo",
+    question: "Ali nam pomagate tudi med samim pogovorom z zunanjim revizorjem?",
     answer:
-      "We offer 24/7 customer support via chat, email, and phone, plus a comprehensive knowledge base, video tutorials, and dedicated account managers for enterprise clients.",
-  },
-  {
-    id: "security",
-    question: "Is my customer data secure?",
-    answer:
-      "Yes, we use industry-standard encryption, secure data centers, and comply with GDPR and other privacy regulations to protect your customer data.",
-  },
-  {
-    id: "plans",
-    question: "Can I upgrade or downgrade my plan anytime?",
-    answer:
-      "Yes, you can change your plan at any time through your account settings. Upgrades take effect immediately, while downgrades apply at the next billing cycle.",
-  },
-  {
-    id: "training",
-    question: "Do you offer training for your CRM?",
-    answer:
-      "We provide extensive training resources including video tutorials, webinars, live training sessions, and a community forum where users can share tips and best practices.",
-  },
-  {
-    id: "cancel",
-    question: "What if I need to cancel my subscription?",
-    answer:
-      "You can cancel anytime from your account dashboard. We'll provide data export options and process any refunds according to our policy.",
+      "Da. V okviru paketa Audit Companion smo prisotni na tehničnih sestankih z revizijsko hišo, pomagamo pri interpretaciji zahtev ter ustrezni predložitvi tehničnih dokazov iz vaših orodij.",
   },
 ];
 ---
@@ -70,21 +46,21 @@ const faqs = [
 <section id="faq" aria-labelledby="faq-heading" class="pt-8">
   <Wrapper variant="default" class="py-20">
     <div class="mx-auto max-w-2xl">
-      <div class="text-balance">
+      <div class="text-balance text-center">
         <Text
           id="faq-heading"
           tag="h2"
           variant="displayMD"
           class="text-foreground font-display tracking-tight"
         >
-          FAQ
+          Pogosta vprašanja
         </Text>
         <Text
           tag="p"
           variant="textBase"
           class="text-muted-foreground mt-1.5 font-normal"
         >
-          Quick answers about plans, setup, integrations, and support.
+          Odgovori na ključna vprašanja glede procesa, standardov in integracije v razvojno okolje.
         </Text>
       </div>
 
@@ -106,8 +82,6 @@ const faqs = [
           ))
         }
       </div>
-
-    
     </div>
   </Wrapper>
 </section>

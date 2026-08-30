@@ -7,10 +7,11 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 //Icons
 import Burger from "@/components/fundations/icons/Burger.astro";
 import Close from "@/components/fundations/icons/Close.astro";
+
 const navItems = [
-  { href: "#features", text: "Features" },
-  { href: "#pricing", text: "Pricing" },
-  { href: "#faq", text: "Faq" },
+  { href: "#storitve", text: "Storitve" },
+  { href: "#paketi", text: "Paketi" },
+  { href: "#faq", text: "Pogosta vprašanja" },
 ];
 ---
 
@@ -22,10 +23,10 @@ const navItems = [
       <div class="flex flex-row items-center justify-between lg:justify-start">
         <a
           href="/"
-          class="flex items-center gap-2 text-foreground text-bse font-medium"
+          class="flex items-center gap-2 text-foreground text-base font-medium"
         >
           <Logo class="size-5" />
-          <span>AstroSaaS</span>
+          <span>Secure SDLC</span>
         </a>
         <button
           id="nav-toggle"
@@ -43,7 +44,7 @@ const navItems = [
       >
         <div class="flex flex-col md:flex-row items-center gap-4">
           {
-            navItems.map((item, index) => (
+            navItems.map((item) => (
               <a
                 class="text-sm font-medium text-muted-foreground hover:text-foreground"
                 href={item.href}
@@ -55,21 +56,14 @@ const navItems = [
         </div>
         <div class="flex flex-col md:flex-row items-center gap-2">
           <Button
-            variant="muted"
-            size="xs"
-            isLink
-            href="/signup"
-            class="w-full md:w-fit">Sign up</Button
-          >
-          <Button
             variant="default"
             size="xs"
             isLink
-            href="/login"
+            href="#kontakt"
             class="w-full md:w-fit"
           >
-            Log in</Button
-          >
+            Kontakt
+          </Button>
         </div>
       </nav>
     </div>

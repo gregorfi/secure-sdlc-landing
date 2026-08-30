@@ -1,7 +1,5 @@
 ---
 // Assets
-import { Image } from "astro:assets";
-import DashboardLight from "@/images/dashboardLight.svg";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -17,43 +15,34 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           variant="displayMD"
           class="text-foreground font-display tracking-tight"
         >
-          A starter template built with Astro and Tailwind CSS for your next
-          project
+          Pripravite vaš razvoji proces na revizijo SOC 2, ISO 27034 in NIS2
         </Text>
         <Text
           tag="p"
           variant="textBase"
-          class="text-muted-foreground mt-1.5 font-normal"
+          class="text-muted-foreground mt-3 font-normal"
         >
-          Feature sections, a pricing table, testimonial, CTA, and full forms.
+          Pomagamo razvojem ekipam vzpostaviti varen življenjski krog razvoja programske opreme (Secure SDLC), avtomatizirati preverjanje skladnosti v CI/CD ter uspešno prestati uradne revizije.
         </Text>
       </div>
-      <div class="mx-auto mt-4 flex w-fit flex-wrap justify-center gap-2">
+      <div class="mx-auto mt-6 flex w-fit flex-wrap justify-center gap-2">
         <Button
           variant="default"
           size="xs"
           isLink
-          href="https://lexingtonthemes.com"
+          href="#kontakt"
         >
-          More themes</Button
-        >
+          Rezervirajte uvodni posvet
+        </Button>
         <Button
           variant="muted"
           size="xs"
           isLink
-          href="https://github.com/michael-andreuzza/astrosaas">GitHub</Button
+          href="#storitve"
         >
+          Pregled storitev
+        </Button>
       </div>
-    </div>
-
-    <div class="mt-12">
-      <Image
-        alt="Dashboard"
-        width={900}
-        height={700}
-        src={DashboardLight}
-        class="relative w-full rounded-xl object-cover"
-      />
-    </div>
+    </div>    
   </Wrapper>
-</section>
+</section>  

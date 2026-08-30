@@ -3,65 +3,65 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 const features = [
-  "Contact Management",
-  "Lead Tracking",
-  "Customer Segmentation",
-  "Email Campaigns",
-  "Sales Pipeline",
-  "Task Automation",
-  "Reporting Dashboards",
-  "Mobile Access",
-  "Data Import/Export",
-  "User Permissions",
-  "Integration APIs",
-  "Customer Support Ticketing",
+  "SOC 2 Type II",
+  "ISO 27034 (Application Security)",
+  "NIS2 Direktiva",
+  "Secure SDLC Architecture",
+  "SAST / DAST Integracija",
+  "Dependency Scanning",
+  "Git Flow & Branch Governance",
+  "Secrets Management",
+  "CI/CD Pipeline Security",
+  "Threat Modeling",
+  "Code Review Automation",
+  "Audit-ready Evidence",
 ];
 
 const featureItems = [
   {
-    title: "Contact Management",
+    title: "Ocena stanja (Gap Analysis)",
     description:
-      "Organize every contact, company, and note in one searchable workspace.",
+      "Pregled obstoječih Git procesov, CI/CD cevovodov in varnostnih kontrol z jasnim načrtom do certifikacije.",
   },
   {
-    title: "Lead Tracking",
+    title: "Varno upravljanje kode",
     description:
-      "Follow leads from first touch to closed deal with a clear activity history.",
+      "Vzpostavitev strogih pravil za veje (Branch Governance), obveznih odobritev in avtomatiziranih pregledov kode.",
   },
   {
-    title: "Sales Forecasting",
+    title: "Integracija SAST / DAST",
     description:
-      "Project revenue by stage and close date so planning stays grounded.",
+      "Samodejno skeniranje kode in odvisnosti (SST, SCA) neposredno v vaših CI/CD cevovodih brez zaustavljanja razvoja.",
   },
   {
-    title: "Automated Workflows",
+    title: "Upravljanje skrivnosti",
     description:
-      "Trigger tasks, emails, and handoffs when records move or conditions match.",
+      "Varna hramba API ključev in gesel ter odprava trdo kodiranih skrivnosti v repozitorijih.",
   },
   {
-    title: "Visual pipeline",
+    title: "Varni razvojni proces (Secure SDLC)",
     description:
-      "Drag deals across stages on a kanban board the whole team can read.",
+      "Vpeljava varnostnih zahtev v vsako fazo razvoja – od načrtovanja funkcij do produkcijske namestitve.",
   },
   {
-    title: "Email & calendar sync",
+    title: "NIS2 & ISO 27034 skladnost",
     description:
-      "Log conversations automatically by connecting Gmail or Outlook.",
+      "Prilagoditev arhitekture in procesov specifičnim zahtevam evropske direktive NIS2 ter standarda ISO 27034.",
   },
   {
-    title: "Reporting dashboards",
+    title: "Avtomatizacija dokazov za revizijo",
     description:
-      "Track conversion, pipeline health, and rep activity without spreadsheets.",
+      "Sistematsko zbiranje revizijskih sledi (Audit Trail) iz Git in CI/CD orodij za zunanje presojevalce.",
   },
   {
-    title: "Integrations & API",
+    title: "Spremstvo pri reviziji (Audit Companion)",
     description:
-      "Connect your stack with webhooks, Zapier, and a REST API for custom flows.",
+      "Neposredna podpora vaši ekipi med tehničnim pregledom zunanjih auditorjev za SOC 2 ali ISO presoje.",
   },
 ];
 ---
 
-<section id="features" class="pt-8">
+<section id="storitve" class="pt-8">
   <Wrapper variant="default" class="py-20">
     <div class="mx-auto max-w-xl text-center">
       <div class="text-balance">
@@ -70,15 +70,14 @@ const featureItems = [
           variant="displayMD"
           class="text-foreground font-display tracking-tight"
         >
-          Empowering businesses with intelligent CRM solutions
+          Celoletna varnost in skladnost vaše programske opreme
         </Text>
         <Text
           tag="p"
           variant="textBase"
           class="text-muted-foreground mt-1.5 font-normal"
         >
-          The most efficient way to manage customer relationships and boost
-          sales performance.
+          Od analize vrzeli do avtomatizirane CI/CD varnosti in uspešno opravljene revizije.
         </Text>
       </div>
     </div>

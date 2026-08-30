@@ -1,77 +1,90 @@
 ---
-// Assets
-import { Image } from "astro:assets";
-// Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const ads = [
-  {
-    title: "Lexington Themes",
-    event: "lexingtonAdd",
-    href: "https://lexingtonthemes.com/",
-    imgSrc: "https://lexingtonthemes.com/OpenGraph/twitter.png",
-    description:
-      "Launch faster with premium Astro V7 & Tailwind CSS, Sanity CMS and EmDash CMS themes.",
-  },
-  {
-    title: "Kobbe",
-    event: "kobbeAdd",
-    href: "https://kobbe.io/",
-    imgSrc: "https://kobbe.io/images/opengraph/facebook.png",
-    description:
-      "Privacy-first web analytics with traffic and revenue in one place.",
-  },
-];
 ---
 
-<section>
-  <Wrapper variant="default" class="py-20">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-      {
-        ads.map((ad) => (
-          <div class="group relative border border-border cursor-pointer  rounded-xl bg-background overflow-hidden">
-            <a href={ad.href} class="absolute inset-0" />
-            <div class="flex flex-col items-start justify-between h-full ">
-              <Image
-                alt={ad.description}
-                width={400}
-                height={240}
-                class="block w-full h-full  cursor-pointer overflow-hidden  object-cover  aspect-16/8 object-top"
-                src={ad.imgSrc}
-                style={{ color: "transparent" }}
-              />
-              <div class="p-8  border-b border-border order-first h-full flex flex-col justify-between gap-8">
-                <div>
-                  <Text
-                    tag="h3"
-                    variant="textLG"
-                    class="font-medium text-foreground"
-                  >
-                    {ad.title}
-                  </Text>
-                  <Text
-                    tag="p"
-                    variant="textBase"
-                    class="text-muted-foreground mt-1"
-                  >
-                    {ad.description}
-                  </Text>
-                </div>
-                <Button
-                  isLink
-                  size="sm"
-                  variant="default"
-                  href={ad.href}
-                  class="w-fit"
-                >
-                  Visit {ad.title}
-                </Button>
-              </div>
-            </div>
-          </div>
-        ))
-      }
+<section id="kontakt" class="bg-muted/50 border-t border-border py-20">
+  <Wrapper variant="default">
+    <div class="mx-auto max-w-xl text-center">
+      <Text
+        tag="h2"
+        variant="displayMD"
+        class="text-foreground font-display tracking-tight"
+      >
+        Rezervirajte uvodni posvet
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="text-muted-foreground mt-3 font-normal"
+      >
+        Pošljite povpraševanje ali vprašanje glede analize vrzeli in avtomatizacije Secure SDLC procesov. Odgovorimo v najkrajšem možnem času.
+      </Text>
+
+      <!-- Kontaktni obrazec -->
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="mt-8 space-y-4 text-left"
+      >
+        <!-- Web3Forms Access Key (Zamenjajte s svojim ključem) -->
+        <input type="hidden" name="access_key" value="VAŠ_ACCESS_KEY_TUKAJ" />
+
+        <!-- Nastavitev zadeve e-pošte -->
+        <input type="hidden" name="subject" value="Novo povpraševanje za Secure SDLC svetovanje" />
+
+        <!-- Honeypot polje za preprečevanje spama (skrito za prave uporabnike) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-foreground mb-1">
+            Ime in priimek
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            placeholder="Janez Novak"
+            class="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-foreground mb-1">
+            E-poštni naslov
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder="janez@podjetje.si"
+            class="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+          />
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-foreground mb-1">
+            Sporočilo / Opis projekta
+          </label>
+          <textarea
+            name="message"
+            id="message"
+            rows="4"
+            required
+            placeholder="Zanima nas ocena pripravljenosti na NIS2/SOC 2 ter integracija SAST orodij v naš CI/CD..."
+            class="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+          ></textarea>
+        </div>
+
+        <div>
+          <Button type="submit" variant="default" size="md" class="w-full justify-center">
+            Pošlji povpraševanje
+          </Button>
+        </div>
+      </form>
     </div>
   </Wrapper>
 </section>
