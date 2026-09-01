@@ -1,0 +1,66 @@
+---
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-md z-50 transform translate-y-8 opacity-0 transition-all duration-300 pointer-events-none hidden"
+>
+  <div class="bg-background/95 backdrop-blur-md border border-border p-5 rounded-xl shadow-xl space-y-3 text-sm">
+    <div class="flex items-start justify-between gap-2">
+      <h3 class="font-semibold text-foreground text-base">Zasebnost in piškotki 🍪</h3>
+    </div>
+    <p class="text-muted-foreground text-xs leading-relaxed">
+      Spletno mesto uporablja osnovne piškotke za zagotavljanje boljše uporabniške izkušnje in analizo obiska.
+    </p>
+    <div class="flex items-center gap-2 pt-1">
+      <button
+        id="accept-cookies"
+        class="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-lg text-xs font-medium transition-colors cursor-pointer w-full text-center"
+      >
+        Sprejemam
+      </button>
+      <button
+        id="decline-cookies"
+        class="bg-muted text-muted-foreground hover:bg-muted/80 px-4 py-2 rounded-lg text-xs font-medium transition-colors cursor-pointer w-full text-center"
+      >
+        Samo nujni
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const declineBtn = document.getElementById('decline-cookies');
+
+    if (!banner || !acceptBtn || !declineBtn) return;
+
+    // Preveri, ali je uporabnik že izbral nastavitve
+    const cookieConsent = localStorage.getItem('cookie-consent');
+
+    if (!cookieConsent) {
+      // Prikaz banerja z rahlim zamikom za lepšo animacijo
+      banner.classList.remove('hidden');
+      setTimeout(() => {
+        banner.classList.remove('translate-y-8', 'opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+
+    const closeBanner = (choice: string) => {
+      localStorage.setItem('cookie-consent', choice);
+      banner.classList.add('translate-y-8', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        banner.classList.add('hidden');
+      }, 300);
+    };
+
+    acceptBtn.addEventListener('click', () => closeBanner('accepted'));
+    declineBtn.addEventListener('click', () => closeBanner('declined'));
+  }
+
+  // Zagon ob prvem nalaganju in ob View Transitions (če jih uporabljate v Astro)
+  initCookieBanner();
+  document.addEventListener('astro:after-swap', initCookieBanner);
+</script>
