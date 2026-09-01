@@ -1,96 +1,82 @@
 ---
-// Assets
-import Logo from "@/components/assets/Logo.astro";
-// Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const sections = [
-  {
-    title: "All pages",
-    links: [
-      { name: "Home", href: "/" },
-      { name: "Terms", href: "/terms" },
-      { name: "Sign up", href: "/signup" },
-      { name: "Sign in", href: "/login" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      {
-        name: "GitHub repo",
-        href: "https://github.com/michael-andreuzza/astrosaas",
-      },
-    ],
-  },
-  {
-    title: "More themes",
-    links: [
-      {
-        name: "Lexington Themes",
-        href: "https://lexingtonthemes.com/",
-      },
-      {
-        name: "Kobbe",
-        href: "https://kobbe.io/",
-      },
-      {
-        name: "NonCommon",
-        href: "https://noncommon.site/",
-      },
-    ],
-  },
-  {
-    title: "Socials",
-    links: [
-      {
-        name: "@lexingtonthemes",
-        href: "https://x.com/lexingtonthemes",
-      },
-      {
-        name: "@Mike_Andreuzza",
-        href: "https://x.com/Mike_Andreuzza",
-      },
-    ],
-  },
+
+const navigation = [
+  { name: "Domov", href: `${import.meta.env.BASE_URL}/` },
+  { name: "Storitve", href: `${import.meta.env.BASE_URL}/#storitve` },
+  { name: "Proces", href: `${import.meta.env.BASE_URL}/#proces` },
+  { name: "Kontakt", href: `${import.meta.env.BASE_URL}/#kontakt` },
 ];
-const currentYear = new Date().getFullYear();
+
+const standards = [
+  "SOC 2 Type II",
+  "ISO 27034",
+  "NIS2 Direktiva",
+  "Secure SDLC",
+];
 ---
 
-<footer>
+<footer class="border-t border-border bg-background mt-auto">
   <Wrapper variant="default" class="py-12">
-    <nav
-      class="grid grid-cols-2 gap-8 text-sm md:grid-cols-4 lg:grid-cols-5"
-      aria-label="Footer"
-    >
-      <a href="/" aria-label="Homepage">
-        <Logo class="text-foreground h-12 w-fit shrink-0" />
-      </a>
-      {
-        sections.map(({ title, links }) => (
-          <div class="space-y-3">
-            <Text
-              tag="p"
-              variant="textXS"
-              class="text-foreground font-semibold uppercase"
-            >
-              {title}
-            </Text>
-            <ul role="list" class="space-y-1">
-              {links.map(({ name, href }) => (
-                <li>
-                  <a
-                    href={href}
-                    class="text-muted-foreground hover:text-foreground text-xs font-medium transition-colors"
-                  >
-                    {name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </nav>    
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+      
+      <!-- 1. Stran / O nas -->
+      <div class="md:col-span-2 space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="font-display font-bold text-lg text-foreground tracking-tight">
+            Secure SDLC
+          </span>
+        </div>
+        <p class="text-muted-foreground text-sm max-w-sm text-pretty leading-relaxed">
+          Strokovna pomoč pri vzpostavitvi varnega življenjskega kroga razvoja programske opreme, CI/CD avtomatizaciji in pripravi na certifikacijske revizije.
+        </p>
+      </div>
+
+      <!-- 2. Hitre povezave (All Pages) -->
+      <div class="space-y-3">
+        <h3 class="text-foreground text-sm font-semibold">Navigacija</h3>
+        <ul class="space-y-2 text-sm">
+          {
+            navigation.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- 3. Standardi in skladnost -->
+      <div class="space-y-3">
+        <h3 class="text-foreground text-sm font-semibold">Področja skladnosti</h3>
+        <ul class="space-y-2 text-sm text-muted-foreground">
+          {
+            standards.map((std) => (
+              <li class="flex items-center gap-1.5">
+                <span class="size-1.5 rounded-full bg-primary/60"></span>
+                {std}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Spodnja letev (Copyright & Pravno) -->
+    <div class="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+      <p>© {new Date().getFullYear()} Secure SDLC. Vse pravice pridržane.</p>
+      <div class="flex gap-4">
+        <a href={`${import.meta.env.BASE_URL}/privacy`} class="hover:text-foreground transition-colors">
+          Zasebnost in piškotki
+        </a>
+      </div>
+    </div>
   </Wrapper>
 </footer>
