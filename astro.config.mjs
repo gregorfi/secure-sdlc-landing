@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://gregorfi.github.io",
+  site: "www.auditready.si",
   base: "/secure-sdlc-landing",
   integrations: [sitemap()],
   fonts: [
