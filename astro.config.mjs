@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "www.auditready.si",
+  site: "https://www.auditready.si",
   base: "/",
   integrations: [sitemap()],
   fonts: [
