@@ -4,9 +4,9 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 const navigation = [
   { name: "Domov", href: "#" },
-  { name: "Storitve", href: "#storitve" },
-  { name: "Proces", href: "#proces" },
-  { name: "Kontakt", href: "#kontakt" },
+  { name: "Storitve", href: "#Services" },
+  { name: "Pogosta vprašanja", href: "#faq" },
+  { name: "Kontakt", href: "#Kontakt" },
 ];
 
 const standards = [
@@ -73,8 +73,8 @@ const standards = [
     <div class="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
       <p>© {new Date().getFullYear()} Secure SDLC. Vse pravice pridržane.</p>
       <div class="flex gap-4">
-        <a href={`${import.meta.env.BASE_URL}/privacy`} class="hover:text-foreground transition-colors">
-          Zasebnost in piškotki
+        <a href="/privacy" class="hover:text-foreground transition-colors">
+  Zasebnost in piškotki
         </a>
       </div>
     </div>
