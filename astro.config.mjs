@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "www.auditready.si",
-  base: "/secure-sdlc-landing",
+  base: "/",
   integrations: [sitemap()],
   fonts: [
     {
